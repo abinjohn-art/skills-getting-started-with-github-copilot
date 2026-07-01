@@ -29,26 +29,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const spotsLeft = details.max_participants - details.participants.length;
       const participants = details.participants || [];
+      const participantItemsMarkup = participants
+        .map(
+          (email) => `
+            <li class="participant-item">
+              <span class="participant-email">${email}</span>
+              <button
+                type="button"
+                class="participant-remove"
+                data-activity-name="${name}"
+                data-email="${email}"
+                aria-label="Remove ${email} from ${name}"
+                title="Remove ${email} from ${name}"
+              >
+                🗑
+              </button>
+            </li>
+          `
+        )
+        .join("");
       const participantsMarkup = participants.length
-        ? `<ul class="participant-list">${participants
-            .map(
-              (email) => `
-                <li class="participant-item">
-                  <span class="participant-email">${email}</span>
-                  <button
-                    type="button"
-                    class="participant-remove"
-                    data-activity-name="${name}"
-                    data-email="${email}"
-                    aria-label="Remove ${email} from ${name}"
-                    title="Remove ${email} from ${name}"
-                  >
-                    🗑
-                  </button>
-                </li>
-              `
-            )
-            .join("")}</ul>`
+        ? `<ul class="participant-list">${participantItemsMarkup}</ul>`
         : '<p class="no-participants">No participants yet.</p>';
 
       activityCard.innerHTML = `
