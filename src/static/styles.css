@@ -77,15 +77,23 @@ section h3 {
 
 .participants-section {
   margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid #e0e7ff;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8faff;
+  border: 1px solid #e0e7ff;
+}
+
+.participants-section strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #1a237e;
 }
 
 .participant-list {
-  margin: 8px 0 0;
+  margin: 0;
   padding: 0;
-  list-style: none;
   color: #4a4a4a;
+  list-style: none;
 }
 
 .participant-item {
@@ -93,7 +101,7 @@ section h3 {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 6px 0;
+  padding: 5px 0;
   border-bottom: 1px solid #eef2ff;
 }
 
@@ -103,6 +111,7 @@ section h3 {
 
 .participant-email {
   word-break: break-word;
+  color: #374151;
 }
 
 .participant-remove {
@@ -110,12 +119,20 @@ section h3 {
   background: #fee2e2;
   color: #b91c1c;
   border-radius: 999px;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
-  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.participant-remove:hover {
+  background: #fecaca;
+  transform: scale(1.05);
 }
 
 .participant-remove:hover {
